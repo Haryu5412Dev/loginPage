@@ -75,5 +75,5 @@ app.get('/', (req, res) => {
 
 // 서버 시작
 app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+    console.log('서버가 이 링크로 열렸습니다! :  http://localhost:3000');
 });

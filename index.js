@@ -22,9 +22,6 @@ app.use(express.static(path.join(__dirname)));
 app.post('/', async (req, res) => {
     const { username, password } = req.body;
 
-        // 유저명을 소문자로 변환
-        username = username.toLowerCase();
-
     let conn;
     try {
         conn = await pool.getConnection();
@@ -46,6 +43,9 @@ app.post('/', async (req, res) => {
 // 회원가입 요청 처리
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
+
+    // 유저명을 소문자로 변환
+    username = username.toLowerCase();
 
     // 유저명 유효성 검사: 알파벳 대소문자와 숫자만 허용
     const usernamePattern = /^[a-zA-Z0-9]+$/;

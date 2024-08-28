@@ -5,6 +5,13 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     var password = document.getElementById("password").value;
     var errorMessage = document.getElementById("errorMessage");
 
+    // 비밀번호 유효성 검사: 특수문자 포함 여부
+    var specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
+    if (!specialCharPattern.test(password)) {
+        errorMessage.textContent = '비밀번호에는 최소 한 개의 특수문자가 포함되어야 합니다.';
+        return;
+    }
+
     fetch('/register', {
         method: 'POST',
         headers: {

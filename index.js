@@ -22,6 +22,9 @@ app.use(express.static(path.join(__dirname)));
 app.post('/', async (req, res) => {
     const { username, password } = req.body;
 
+        // 유저명을 소문자로 변환
+        username = username.toLowerCase();
+
     let conn;
     try {
         conn = await pool.getConnection();

@@ -1,7 +1,7 @@
 document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault(); // 기본 제출 동작 방지
 
-    var username = document.getElementById("username").value;
+    var username = document.getElementById("username").value.toLowerCase();
     var password = document.getElementById("password").value;
     var errorMessage = document.getElementById("errorMessage");
 

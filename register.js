@@ -5,6 +5,13 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     var password = document.getElementById("password").value;
     var errorMessage = document.getElementById("errorMessage");
 
+    // 유저명 유효성 검사: 알파벳 대소문자와 숫자만 허용
+    var usernamePattern = /^[a-zA-Z0-9]+$/;
+    if (!usernamePattern.test(username)) {
+        errorMessage.textContent = '유저명은 알파벳과 숫자만 포함할 수 있습니다.';
+        return;
+    }
+
     // 비밀번호 유효성 검사: 특수문자 포함 여부
     var specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
     if (!specialCharPattern.test(password)) {
